@@ -18,14 +18,14 @@ export default function FiltersPanel({
     });
   };
 
-  const handleFileTypeToggle = (type) => {
-    const currentTypes = filters.fileTypes || [];
-    const updated = currentTypes.includes(type)
-      ? currentTypes.filter(t => t !== type)
-      : [...currentTypes, type];
+  const handleCountryToggle = (country) => {
+    const currentCountries = filters.countries || [];
+    const updated = currentCountries.includes(country)
+      ? currentCountries.filter(c => c !== country)
+      : [...currentCountries, country];
     onFiltersChange({
       ...filters,
-      fileTypes: updated,
+      countries: updated,
     });
   };
 
@@ -239,7 +239,7 @@ export default function FiltersPanel({
             </Box>
           </Box>
 
-          {/* File Types Section */}
+          {/* Country/Region Section */}
           <Box sx={{ mb: 3 }}>
             <Typography
               sx={{
@@ -251,24 +251,40 @@ export default function FiltersPanel({
                 mb: 1.5,
               }}
             >
-              File Types
+              Country/Region
             </Typography>
             <Box sx={{ display: "flex", gap: 1, flexWrap: "wrap" }}>
-              {["CSV", "JSON", "SQLite", "Parquet", "BigQuery"].map((type) => (
+              {[
+                "United States",
+                "Canada",
+                "United Kingdom",
+                "India",
+                "Australia",
+                "Germany",
+                "France",
+                "Japan",
+                "Brazil",
+                "Nigeria",
+                "Mexico",
+                "South Africa",
+                "Singapore",
+                "China",
+                "Netherlands",
+              ].map((country) => (
                 <Chip
-                  key={type}
-                  label={type}
-                  onClick={() => handleFileTypeToggle(type)}
+                  key={country}
+                  label={country}
+                  onClick={() => handleCountryToggle(country)}
                   variant={
-                    (filters.fileTypes || []).includes(type)
+                    (filters.countries || []).includes(country)
                       ? "filled"
                       : "outlined"
                   }
                   sx={{
-                    backgroundColor: (filters.fileTypes || []).includes(type)
+                    backgroundColor: (filters.countries || []).includes(country)
                       ? PRIMARY_COLOR
                       : "transparent",
-                    color: (filters.fileTypes || []).includes(type)
+                    color: (filters.countries || []).includes(country)
                       ? "#fff"
                       : "#374151",
                     borderColor: "#d1d5db",
@@ -276,7 +292,9 @@ export default function FiltersPanel({
                     fontSize: "0.85rem",
                     height: 32,
                     "&:hover": {
-                      backgroundColor: (filters.fileTypes || []).includes(type)
+                      backgroundColor: (filters.countries || []).includes(
+                        country
+                      )
                         ? PRIMARY_COLOR
                         : "#f3f4f6",
                     },

@@ -25,13 +25,6 @@ const projectDatasets = [
   { id: 6, title: "Renewable Energy Open Dataset", author: "EnergyStats Collective", category: "Natural Resources and Energy", projectType: "Open Source Prep", monetization: "Open Data", fundingGoal: "$5,000", usability: "9.9", updated: "Updated 4 days ago", files: "7 Files (CSV, JSON)", size: "9.8 GB", downloads: "2,341 downloads", votes: 68, image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=80", price: "Free Listing", status: "Completed", contributors: 51, forks: 156, stars: 678, progress: 100, tags: ["energy", "renewable", "solar", "wind"], avatars: ["https://i.pravatar.cc/40?img=131", "https://i.pravatar.cc/40?img=141", "https://i.pravatar.cc/40?img=151"] },
 ];
 
-const projectStats = [
-  { label: "Listed Projects", value: "284", change: "+18", icon: <FolderOpen size={22} color={PRIMARY} /> },
-  { label: "Expert Partners", value: "12.4K", change: "+24%", icon: <Users size={22} color={PRIMARY} /> },
-  { label: "Active Collabs", value: "8,920", change: "+31%", icon: <GitFork size={22} color={PRIMARY} /> },
-  { label: "Market Trust", value: "48.2K", change: "+22%", icon: <Star size={22} color={PRIMARY} /> },
-];
-
 const statusColors = { Active: { bg: "#f0fdf4", color: "#16a34a", border: "#bbf7d0" }, "Seeking Contributors": { bg: "#eff6ff", color: "#2563eb", border: "#bfdbfe" }, Completed: { bg: "#f5f3ff", color: "#7c3aed", border: "#ddd6fe" } };
 
 export default function ProjectPage() {
@@ -39,6 +32,13 @@ export default function ProjectPage() {
   const themeColors = useThemeColors();
   const PRIMARY = "#FF8C00"; // Orange
   const SECONDARY = themeColors.teal;
+
+  const projectStats = [
+    { label: "Listed Projects", value: "284", change: "+18", icon: <FolderOpen size={22} color={PRIMARY} /> },
+    { label: "Expert Partners", value: "12.4K", change: "+24%", icon: <Users size={22} color={PRIMARY} /> },
+    { label: "Active Collabs", value: "8,920", change: "+31%", icon: <GitFork size={22} color={PRIMARY} /> },
+    { label: "Market Trust", value: "48.2K", change: "+22%", icon: <Star size={22} color={PRIMARY} /> },
+  ];
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedStatus, setSelectedStatus] = useState("All");
